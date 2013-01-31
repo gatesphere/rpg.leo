@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by Leo (http://webpages.charter.net/edreamleo/front.html) -->
+<?xml-stylesheet ekr_test?>
+<leo_file xmlns:leo="http://www.leo-editor.org/2011/leo" >
+<leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
+<globals body_outline_ratio="0.5" body_secondary_ratio="0.5">
+	<global_window_position top="50" left="50" height="500" width="700"/>
+	<global_log_window_position top="0" left="0" height="0" width="0"/>
+</globals>
+<preferences/>
+<find_panel_settings/>
+<vnodes>
+<v t="peckj.20130130110049.5559" a="E"><vh>Startup</vh>
+<v t="peckj.20130130133524.1374"><vh>Buttons</vh>
+<v t="peckj.20130130135139.1384" a="E"><vh>Tag-finding buttons</vh>
+<v t="peckj.20130131083021.1418"><vh>Unused</vh></v>
+<v t="peckj.20130130135455.1409"><vh>@button pcs</vh></v>
+<v t="peckj.20130130122926.1372"><vh>@button npcs</vh></v>
+<v t="peckj.20130130135455.1405"><vh>@button locations</vh></v>
+<v t="peckj.20130130135455.1407"><vh>@button items</vh></v>
+<v t="peckj.20130130135455.1406"><vh>@button events</vh></v>
+<v t="peckj.20130130135455.1408"><vh>@button rules</vh></v>
+</v>
+<v t="peckj.20130130135139.1385"><vh>Die-rolling buttons</vh>
+<v t="peckj.20130131083021.1417"><vh>Unused</vh>
+<v t="peckj.20130130160613.1417"><vh>@@button 1d20</vh></v>
+<v t="peckj.20130130160613.1414"><vh>@@button 2df</vh></v>
+<v t="peckj.20130131083021.1416"><vh>@@button 2d6</vh></v>
+</v>
+<v t="peckj.20130130160613.1416"><vh>@button 1d100</vh></v>
+<v t="peckj.20130130160613.1418"><vh>@button 1d6</vh></v>
+<v t="peckj.20130130135139.1386"><vh>@button 3d6</vh></v>
+<v t="peckj.20130130134116.1382"><vh>@button 4df</vh></v>
+<v t="peckj.20130130160613.1415"><vh>@button 1df</vh></v>
+</v>
+</v>
+<v t="peckj.20130130133524.1373"><vh>Scripts</vh>
+<v t="peckj.20130130110049.5563"><vh>@common code</vh></v>
+</v>
+</v>
+<v t="peckj.20130130140936.1402"><vh>ScratchPad</vh></v>
+<v t="peckj.20130130140936.1403"><vh>ScriptPad</vh></v>
+<v t="peckj.20130130140936.1400"><vh>NPCs</vh>
+<v t="peckj.20130130110049.5561"><vh>John Doe #npc</vh></v>
+<v t="peckj.20130130110049.5562"><vh>Jane Smith #npc</vh></v>
+</v>
+</vnodes>
+<tnodes>
+<t tx="peckj.20130130110049.5559">@ please see the Scripts node for more information
+@c
+
+@color
+@language python
+@tabwidth -2
+</t>
+<t tx="peckj.20130130110049.5561"></t>
+<t tx="peckj.20130130110049.5562"></t>
+<t tx="peckj.20130130110049.5563">## this script creates a few functions
+## for later retrieval/use by buttons/minibuffer commands
+
+## fn defns
+def rpg_find_by_tag(tag):
+  ''' finds nodes marked with a hashtag with the quicksearch
+      plugin (nav tab)
+  '''
+  tag = '#' + tag
+  c.frame.log.selectTab('Nav')
+  nav = c.frame.log.widget
+  nav.ui.lineEdit.setText(tag)
+  nav.returnPressed()
+  c.executeMinibufferCommand('focus-to-nav')
+
+def rpg_roll_dice(dstring):
+  ''' roll dice '''
+  import random
+  diestring = ("1d6" if not dstring else dstring)
+  values = []
+  diestring2 = diestring.replace("-", " -")
+  diestring2 = diestring2.replace("+", " ")
+  dice = diestring2.lower().split()
+  for die in dice:
+    if die.find('d') != -1:
+      num = die[0:die.index('d')]
+      num = (1 if num == '' else int(num))
+      sides = int(die[die.index('d')+1:])
+      for i in range(num):
+        values.append(random.randrange(1, sides+1))
+    else:
+      values.append(int(die))
+  c.frame.log.selectTab('Dice')
+  g.es('%s %s Total: %d' % (diestring, values, sum(values)), color='blue', tabName='Dice')
+</t>
+<t tx="peckj.20130130122926.1372">exec(g.findTestScript(c,'@common code'))
+rpg_find_by_tag('npc')</t>
+<t tx="peckj.20130130133524.1373">@ To use the buttons that this sheet provides, you 
+  must either run the script below manually (ctrl+B),
+  or enable
+  
+  @bool scripting-at-script-nodes = True
+  
+  in your myLeoSettings.leo file.
+@c</t>
+<t tx="peckj.20130130133524.1374">@ To enable buttons, make sure they only have a single @ in their headlines.
+  Likewise, to disable them, make sure their headline starts with @@.
+@c</t>
+<t tx="peckj.20130130134116.1382">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('4d3-8')
+# equivalent to 4dF: 1dF is 1d3-2.
+
+# A dF is a Fudge/Fate die, a six-sided die 
+# marked with +,+,0,0,-,-.</t>
+<t tx="peckj.20130130135139.1384"></t>
+<t tx="peckj.20130130135139.1385"></t>
+<t tx="peckj.20130130135139.1386">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('3d6')</t>
+<t tx="peckj.20130130135455.1405">exec(g.findTestScript(c,'@common code'))
+rpg_find_by_tag('location')</t>
+<t tx="peckj.20130130135455.1406">exec(g.findTestScript(c,'@common code'))
+rpg_find_by_tag('event')</t>
+<t tx="peckj.20130130135455.1407">exec(g.findTestScript(c,'@common code'))
+rpg_find_by_tag('item')</t>
+<t tx="peckj.20130130135455.1408">exec(g.findTestScript(c,'@common code'))
+rpg_find_by_tag('rule')</t>
+<t tx="peckj.20130130135455.1409">exec(g.findTestScript(c,'@common code'))
+rpg_find_by_tag('pc')</t>
+<t tx="peckj.20130130140936.1400"></t>
+<t tx="peckj.20130130140936.1402">@ use this node as a scratch pad for quick notes or tracking ephemeral data
+@c
+
+</t>
+<t tx="peckj.20130130140936.1403">@color
+@language python
+@tabwidth -2
+## this line is required to use the functions provided by the script
+exec(g.findTestScript(c,'@common code'))
+
+## use this node to write quick scripts, such as complex dierolls
+## run with Ctrl+B
+
+## your code here
+rpg_roll_dice("2d3-4+1d5-3")</t>
+<t tx="peckj.20130130160613.1414">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('2d3-4')
+# equivalent to 2dF: 1dF is 1d3-2.
+
+# A dF is a Fudge/Fate die, a six-sided die 
+# marked with +,+,0,0,-,-.</t>
+<t tx="peckj.20130130160613.1415">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('1d3-2')
+
+# A dF is a Fudge/Fate die, a six-sided die 
+# marked with +,+,0,0,-,-.</t>
+<t tx="peckj.20130130160613.1416">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('1d100')
+</t>
+<t tx="peckj.20130130160613.1417">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('1d20')</t>
+<t tx="peckj.20130130160613.1418">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('1d6')
+</t>
+<t tx="peckj.20130131083021.1416">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('2d6')</t>
+<t tx="peckj.20130131083021.1417"></t>
+<t tx="peckj.20130131083021.1418"></t>
+</tnodes>
+</leo_file>
