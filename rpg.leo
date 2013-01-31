@@ -92,13 +92,26 @@ def rpg_roll_dice(dstring):
 </t>
 <t tx="peckj.20130130122926.1372">exec(g.findTestScript(c,'@common code'))
 rpg_find_by_tag('npc')</t>
-<t tx="peckj.20130130133524.1373">@ To use the buttons that this sheet provides, you 
-  must either run the script below manually (ctrl+B),
-  or enable
+<t tx="peckj.20130130133524.1373">@ The node Startup -&gt; Scripts -&gt; @common code contains the following 
+  function definitions:
+
+  ## rpg_find_by_tag(tag)
+  This function, when called, uses the Nav pane to search for #tag. 
+  For example, to search for nodes with the tag "#npc", call 
+  rpg_find_by_tag('npc').
+
+  ## rpg_roll_dice(dstring)
+  This function, when called, outputs the results of rolling some 
+  dice (defined by dstring, a common die-notation string such as 
+  3d6+4) to a pane called Dice.
   
-  @bool scripting-at-script-nodes = True
+  To use the functions included in @common code, you need to add 
+  this line to the top of any script in which they are to be used:
+
+  exec(g.findTestScript(c,'@common code'))
   
-  in your myLeoSettings.leo file.
+  That will find and load the script, ensuring that the functions 
+  are in scope and able to be used.
 @c</t>
 <t tx="peckj.20130130133524.1374">@ To enable buttons, make sure they only have a single @ in their headlines.
   Likewise, to disable them, make sure their headline starts with @@.
