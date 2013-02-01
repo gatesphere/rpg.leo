@@ -10,28 +10,53 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="peckj.20130130110049.5559" a="E"><vh>Startup</vh>
+<v t="peckj.20130130110049.5559"><vh>Startup</vh>
 <v t="peckj.20130130133524.1374"><vh>Buttons</vh>
-<v t="peckj.20130130135139.1384" a="E"><vh>Tag-finding buttons</vh>
-<v t="peckj.20130131083021.1418"><vh>Unused</vh></v>
-<v t="peckj.20130130135455.1409"><vh>@button pcs</vh></v>
-<v t="peckj.20130130122926.1372"><vh>@button npcs</vh></v>
-<v t="peckj.20130130135455.1405"><vh>@button locations</vh></v>
-<v t="peckj.20130130135455.1407"><vh>@button items</vh></v>
-<v t="peckj.20130130135455.1406"><vh>@button events</vh></v>
-<v t="peckj.20130130135455.1408"><vh>@button rules</vh></v>
+<v t="peckj.20130130135139.1384"><vh>Tag-finding buttons</vh>
+<v t="peckj.20130131083021.1418" a="E"><vh>Unused</vh>
+<v t="peckj.20130130135455.1409"><vh>@@button pcs</vh></v>
+<v t="peckj.20130130122926.1372"><vh>@@button npcs</vh></v>
+<v t="peckj.20130130135455.1405"><vh>@@button locations</vh></v>
+<v t="peckj.20130130135455.1407"><vh>@@button items</vh></v>
+<v t="peckj.20130130135455.1406"><vh>@@button events</vh></v>
+<v t="peckj.20130130135455.1408"><vh>@@button rules</vh></v>
+</v>
+<v t="peckj.20130201100641.14832"><vh>@button find</vh>
+<v t="peckj.20130201100641.14821"><vh>@rclick pcs</vh></v>
+<v t="peckj.20130201100641.14822"><vh>@rclick npcs</vh></v>
+<v t="peckj.20130201100641.14823"><vh>@rclick locations</vh></v>
+<v t="peckj.20130201100641.14824"><vh>@rclick items</vh></v>
+<v t="peckj.20130201100641.14825"><vh>@rclick events</vh></v>
+<v t="peckj.20130201100641.14826"><vh>@rclick rules</vh></v>
+</v>
 </v>
 <v t="peckj.20130130135139.1385"><vh>Die-rolling buttons</vh>
 <v t="peckj.20130131083021.1417"><vh>Unused</vh>
 <v t="peckj.20130130160613.1417"><vh>@@button 1d20</vh></v>
 <v t="peckj.20130130160613.1414"><vh>@@button 2df</vh></v>
 <v t="peckj.20130131083021.1416"><vh>@@button 2d6</vh></v>
+<v t="peckj.20130130135139.1386"><vh>@@button 3d6</vh></v>
+<v t="peckj.20130130160613.1415"><vh>@@button 1df</vh></v>
+</v>
+<v t="peckj.20130130134116.1382"><vh>@button 4df</vh>
+<v t="peckj.20130201100641.14999"><vh>@rclick 2df</vh></v>
+<v t="peckj.20130201100641.14831"><vh>@rclick 1df</vh></v>
+</v>
+<v t="peckj.20130130160613.1418"><vh>@button 1d6</vh>
+<v t="peckj.20130201100641.14997"><vh>@rclick 2d6</vh></v>
+<v t="peckj.20130201100641.14829"><vh>@rclick 3d6</vh></v>
 </v>
 <v t="peckj.20130130160613.1416"><vh>@button 1d100</vh></v>
-<v t="peckj.20130130160613.1418"><vh>@button 1d6</vh></v>
-<v t="peckj.20130130135139.1386"><vh>@button 3d6</vh></v>
-<v t="peckj.20130130134116.1382"><vh>@button 4df</vh></v>
-<v t="peckj.20130130160613.1415"><vh>@button 1df</vh></v>
+<v t="peckj.20130201100641.14995"><vh>@button roll-dice</vh>
+<v t="peckj.20130201100641.14827"><vh>@rclick 1d100</vh></v>
+<v t="peckj.20130201100641.15001"><vh>@rclick 1d20</vh></v>
+<v t="peckj.20130201100641.14828"><vh>@rclick 1d6</vh></v>
+<v t="peckj.20130201100641.14997"></v>
+<v t="peckj.20130201100641.14829"></v>
+<v t="peckj.20130201100641.14830"><vh>@rclick 4df</vh></v>
+<v t="peckj.20130201100641.14999"></v>
+<v t="peckj.20130201100641.14831"></v>
+</v>
 </v>
 </v>
 <v t="peckj.20130130133524.1373"><vh>Scripts</vh>
@@ -151,7 +176,8 @@ exec(g.findTestScript(c,'@common code'))
 ## run with Ctrl+B
 
 ## your code here
-rpg_roll_dice("2d3-4+1d5-3")</t>
+rpg_roll_dice("2d3-4+1d5-3")
+</t>
 <t tx="peckj.20130130160613.1414">exec(g.findTestScript(c,'@common code'))
 rpg_roll_dice('2d3-4')
 # equivalent to 2dF: 1dF is 1d3-2.
@@ -175,5 +201,48 @@ rpg_roll_dice('1d6')
 rpg_roll_dice('2d6')</t>
 <t tx="peckj.20130131083021.1417"></t>
 <t tx="peckj.20130131083021.1418"></t>
+<t tx="peckj.20130201100641.14821">exec(g.findTestScript(c,'@common code'))
+rpg_find_by_tag('pc')</t>
+<t tx="peckj.20130201100641.14822">exec(g.findTestScript(c,'@common code'))
+rpg_find_by_tag('npc')</t>
+<t tx="peckj.20130201100641.14823">exec(g.findTestScript(c,'@common code'))
+rpg_find_by_tag('location')</t>
+<t tx="peckj.20130201100641.14824">exec(g.findTestScript(c,'@common code'))
+rpg_find_by_tag('item')</t>
+<t tx="peckj.20130201100641.14825">exec(g.findTestScript(c,'@common code'))
+rpg_find_by_tag('event')</t>
+<t tx="peckj.20130201100641.14826">exec(g.findTestScript(c,'@common code'))
+rpg_find_by_tag('rule')</t>
+<t tx="peckj.20130201100641.14827">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('1d100')
+</t>
+<t tx="peckj.20130201100641.14828">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('1d6')
+</t>
+<t tx="peckj.20130201100641.14829">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('3d6')</t>
+<t tx="peckj.20130201100641.14830">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('4d3-8')
+# equivalent to 4dF: 1dF is 1d3-2.
+
+# A dF is a Fudge/Fate die, a six-sided die 
+# marked with +,+,0,0,-,-.</t>
+<t tx="peckj.20130201100641.14831">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('1d3-2')
+
+# A dF is a Fudge/Fate die, a six-sided die 
+# marked with +,+,0,0,-,-.</t>
+<t tx="peckj.20130201100641.14832">g.es('Right click the button for options.')</t>
+<t tx="peckj.20130201100641.14995">g.es('Right click the button for options.')</t>
+<t tx="peckj.20130201100641.14997">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('2d6')</t>
+<t tx="peckj.20130201100641.14999">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('2d3-4')
+# equivalent to 2dF: 1dF is 1d3-2.
+
+# A dF is a Fudge/Fate die, a six-sided die 
+# marked with +,+,0,0,-,-.</t>
+<t tx="peckj.20130201100641.15001">exec(g.findTestScript(c,'@common code'))
+rpg_roll_dice('1d20')</t>
 </tnodes>
 </leo_file>
