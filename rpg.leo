@@ -11,7 +11,10 @@
 <find_panel_settings/>
 <vnodes>
 <v t="peckj.20130130110049.5559"><vh>Startup</vh>
-<v t="peckj.20130130133524.1374"><vh>Buttons</vh>
+<v t="peckj.20130130133524.1374" a="E"><vh>Buttons</vh>
+<v t="peckj.20130204145403.7687" a="E"><vh>Table buttons</vh>
+<v t="peckj.20130204145403.7688"><vh>@button roll-on-table</vh></v>
+</v>
 <v t="peckj.20130130135139.1384"><vh>Tag-finding buttons</vh>
 <v t="peckj.20130131083021.1418" a="E"><vh>Unused</vh>
 <v t="peckj.20130130135455.1409"><vh>@@button pcs</vh></v>
@@ -59,7 +62,7 @@
 </v>
 </v>
 </v>
-<v t="peckj.20130130133524.1373"><vh>Scripts</vh>
+<v t="peckj.20130130133524.1373" a="E"><vh>Scripts</vh>
 <v t="peckj.20130130110049.5563"><vh>@common code</vh></v>
 </v>
 </v>
@@ -68,6 +71,16 @@
 <v t="peckj.20130130140936.1400"><vh>NPCs</vh>
 <v t="peckj.20130130110049.5561"><vh>John Doe #npc</vh></v>
 <v t="peckj.20130130110049.5562"><vh>Jane Smith #npc</vh></v>
+</v>
+<v t="peckj.20130204145403.1454" a="E"><vh>Tables</vh>
+<v t="peckj.20130204145403.1455"><vh>@table Example Treasure Table</vh>
+<v t="peckj.20130204145403.1456"><vh>1. 2d6 copper</vh></v>
+<v t="peckj.20130204145403.1457"><vh>2. 1 minor magic item</vh></v>
+<v t="peckj.20130204145403.1458"><vh>3. 1d4 gold</vh></v>
+<v t="peckj.20130204145403.1459"><vh>4. 1 major magic item</vh></v>
+<v t="peckj.20130204145403.1460"><vh>5. Reroll twice</vh></v>
+<v t="peckj.20130204145403.1461"><vh>6. Reroll, double</vh></v>
+</v>
 </v>
 </vnodes>
 <tnodes>
@@ -114,7 +127,36 @@ def rpg_roll_dice(dstring):
       values.append(int(die))
   c.frame.log.selectTab('Dice')
   g.es('%s %s Total: %d' % (diestring, values, sum(values)), color='blue', tabName='Dice')
-</t>
+
+def rpg_roll_on_table(pos):
+  import random
+  if pos and pos.h.startswith('@table'):
+    tablename = pos.h[7:]
+    if pos.hasChildren():
+      idx = random.randrange(0, pos.numberOfChildren())
+      pos = pos.moveToNthChild(idx)
+      c.frame.log.selectTab('Table Results')
+      g.es('\nResult of roll on table %s:' % tablename, color='blue', tabName='Table Results')
+      g.es('%s\n---\n%s\n---------\n\n' % (pos.h, pos.b), color='black', tabName='Table Results')
+    else:
+      g.es('This table is empty, please add some children nodes')
+  else:
+    g.es('Please select a @table node to roll on the table')
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </t>
 <t tx="peckj.20130130122926.1372">exec(g.findTestScript(c,'@common code'))
 rpg_find_by_tag('npc')</t>
 <t tx="peckj.20130130133524.1373">@ The node Startup -&gt; Scripts -&gt; @common code contains the following 
@@ -244,5 +286,16 @@ rpg_roll_dice('2d3-4')
 # marked with +,+,0,0,-,-.</t>
 <t tx="peckj.20130201100641.15001">exec(g.findTestScript(c,'@common code'))
 rpg_roll_dice('1d20')</t>
+<t tx="peckj.20130204145403.1454"></t>
+<t tx="peckj.20130204145403.1455"></t>
+<t tx="peckj.20130204145403.1456">You find 2d6 copper</t>
+<t tx="peckj.20130204145403.1457">1 minor magic item, with 2 minor powers</t>
+<t tx="peckj.20130204145403.1458">You find 1d4 gold</t>
+<t tx="peckj.20130204145403.1459">You find 1 major magic item, with 1 minor and 1 major power.</t>
+<t tx="peckj.20130204145403.1460">Reroll on this table twice, finding both.</t>
+<t tx="peckj.20130204145403.1461">Reroll on this table once, doubling the result.</t>
+<t tx="peckj.20130204145403.7687"></t>
+<t tx="peckj.20130204145403.7688">exec(g.findTestScript(c,'@common code'))
+rpg_roll_on_table(p)</t>
 </tnodes>
 </leo_file>
