@@ -19,6 +19,7 @@
 <v t="peckj.20130430085426.12555" a="E"><vh>@button copy-template</vh>
 <v t="peckj.20130430085426.13093"><vh>@rclick new-session</vh></v>
 <v t="peckj.20130430085426.13094"><vh>@rclick new-character-sheet</vh></v>
+<v t="peckj.20130501111619.2316"><vh>@rclick new-3-line-npc</vh></v>
 </v>
 </v>
 <v t="peckj.20130130135139.1384"><vh>Tag-finding buttons</vh>
@@ -69,7 +70,7 @@
 </v>
 </v>
 <v t="peckj.20130130133524.1373"><vh>Scripts</vh>
-<v t="peckj.20130130110049.5563"><vh>@common code</vh>
+<v t="peckj.20130130110049.5563" a="E"><vh>@common code</vh>
 <v t="peckj.20130430085426.12556"><vh>tags</vh></v>
 <v t="peckj.20130430085426.12557"><vh>dice</vh></v>
 <v t="peckj.20130430085426.12558"><vh>tables</vh></v>
@@ -98,30 +99,38 @@
 </v>
 </v>
 <v t="peckj.20130430085426.1693"><vh>Templates</vh>
-<v t="peckj.20130430085426.1692" a="E"><vh>Session Planning Template</vh>
-<v t="peckj.20130430085426.1694"><vh>@template &lt;$campaign&gt; Session #&lt;$num&gt; (&lt;$date&gt;)</vh>
+<v t="peckj.20130430085426.1692"><vh>Session Planning Template</vh>
+<v t="peckj.20130430085426.1694" a="E"><vh>@template &lt;$campaign&gt; Session #&lt;$num&gt; (&lt;$date&gt;)</vh>
 <v t="peckj.20130430085426.1704"><vh>@destination Sessions</vh></v>
 <v t="peckj.20130430085426.13024"><vh>@default &lt;$campaign&gt;</vh></v>
 <v t="peckj.20130430085426.1695"><vh>@item Who's Coming?</vh></v>
 <v t="peckj.20130430085426.1696"><vh>@item In-World Start Date?</vh></v>
 <v t="peckj.20130430085426.1697"><vh>@item Log</vh></v>
-<v t="peckj.20130430085426.1698"><vh>@item Threads</vh>
+<v t="peckj.20130430085426.1698" a="E"><vh>@item Threads</vh>
 <v t="peckj.20130430085426.1699"><vh>@item High Priority</vh></v>
 <v t="peckj.20130430085426.1700"><vh>@item Low Priority</vh></v>
 </v>
-<v t="peckj.20130430085426.1701"><vh>@item News</vh>
+<v t="peckj.20130430085426.1701" a="E"><vh>@item News</vh>
 <v t="peckj.20130430085426.1703"><vh>@item Out of Character</vh></v>
 <v t="peckj.20130430085426.1702"><vh>@item In Character</vh></v>
 </v>
 </v>
 </v>
-<v t="peckj.20130430085426.13075" a="E"><vh>Character Sheet Template</vh>
+<v t="peckj.20130430085426.13075"><vh>Character Sheet Template</vh>
 <v t="peckj.20130430085426.13076"><vh>@template Character Sheet: &lt;$name&gt; (&lt;$playername&gt;) #pc</vh>
 <v t="peckj.20130430085426.13081"><vh>@destination Player Characters</vh></v>
 <v t="peckj.20130430085426.13077"><vh>@item Attributes</vh></v>
 <v t="peckj.20130430085426.13078"><vh>@item Inventory</vh></v>
 <v t="peckj.20130430085426.13079"><vh>@item Abilities</vh></v>
 <v t="peckj.20130430085426.13080"><vh>@item Notes</vh></v>
+</v>
+</v>
+<v t="peckj.20130501111619.2309"><vh>Quick 3-Line NPC Template</vh>
+<v t="peckj.20130501111619.2310"><vh>@template &lt;$name&gt; #npc</vh>
+<v t="peckj.20130501111619.2311"><vh>@destination NPCs</vh></v>
+<v t="peckj.20130501111619.2312"><vh>@item What you see (appearance and activity)</vh></v>
+<v t="peckj.20130501111619.2313"><vh>@item Who they are (job and personality)</vh></v>
+<v t="peckj.20130501111619.2314"><vh>@item Story hook</vh></v>
 </v>
 </v>
 </v>
@@ -428,19 +437,7 @@ rpg_copy_template(p)</t>
     
   else:
     g.es("This script only works on @template nodes.")
-    return
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </t>
+    return</t>
 <t tx="peckj.20130430085426.12560">def rpg_node_to_list(pos):
   ''' returns a node as a list, in the form of [headline, body, list-of-children-as-lists]
       also removes @item from headline '''
@@ -534,5 +531,14 @@ Jeremy</t>
 <t tx="peckj.20130430085426.1702"></t>
 <t tx="peckj.20130430085426.1703"></t>
 <t tx="peckj.20130430085426.1704"></t>
+<t tx="peckj.20130501111619.2309">Based on Roleplaying Tips newsletter, 01 May 2013.</t>
+<t tx="peckj.20130501111619.2310"></t>
+<t tx="peckj.20130501111619.2311"></t>
+<t tx="peckj.20130501111619.2312">[&lt;$age&gt; &lt;$gender&gt; &lt;$race&gt; &lt;$class&gt;] &lt;$descriptors&gt;; &lt;$activity&gt;</t>
+<t tx="peckj.20130501111619.2313">&lt;$job&gt;.  &lt;$personality&gt;.</t>
+<t tx="peckj.20130501111619.2314">&lt;$storyhook&gt;</t>
+<t tx="peckj.20130501111619.2316">exec(g.findTestScript(c,'@common code'))
+rpg_copy_template(g.findNodeAnywhere(c, "@template &lt;$name&gt; #npc"))
+</t>
 </tnodes>
 </leo_file>
