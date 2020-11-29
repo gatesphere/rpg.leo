@@ -208,10 +208,7 @@ exec(g.findTestScript(c,'@common code'))
 ## run with Ctrl+B
 
 ## your code here
-#rpg_roll_dice("2d3-4+1d5-3")
-
-
-g.es(c.frame.nav.__dir__())</t>
+rpg_roll_dice("2d3-4+1d5-3")</t>
 <t tx="peckj.20130130160613.1414">exec(g.findTestScript(c,'@common code'))
 rpg_roll_dice('2d3-4')
 # equivalent to 2dF: 1dF is 1d3-2.
