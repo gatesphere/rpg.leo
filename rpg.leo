@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Created by Leo (http://webpages.charter.net/edreamleo/front.html) -->
-<?xml-stylesheet ekr_test?>
-<leo_file xmlns:leo="http://www.leo-editor.org/2011/leo" >
-<leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
-<globals body_outline_ratio="0.5" body_secondary_ratio="0.5">
-	<global_window_position top="50" left="50" height="500" width="700"/>
-	<global_log_window_position top="0" left="0" height="0" width="0"/>
-</globals>
+<!-- Created by Leo: http://leoeditor.com/leo_toc.html -->
+<leo_file xmlns:leo="http://leoeditor.com/namespaces/leo-python-editor/1.1" >
+<leo_header file_format="2"/>
+<globals/>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
@@ -16,14 +12,14 @@
 <v t="peckj.20130204145403.7688"><vh>@button roll-on-table</vh></v>
 </v>
 <v t="peckj.20130430085426.12554"><vh>Template buttons</vh>
-<v t="peckj.20130430085426.12555" a="E"><vh>@button copy-template</vh>
+<v t="peckj.20130430085426.12555"><vh>@button copy-template</vh>
 <v t="peckj.20130430085426.13093"><vh>@rclick new-session</vh></v>
 <v t="peckj.20130430085426.13094"><vh>@rclick new-character-sheet</vh></v>
 <v t="peckj.20130501111619.2316"><vh>@rclick new-3-line-npc</vh></v>
 </v>
 </v>
 <v t="peckj.20130130135139.1384"><vh>Tag-finding buttons</vh>
-<v t="peckj.20130131083021.1418" a="E"><vh>Unused</vh>
+<v t="peckj.20130131083021.1418"><vh>Unused</vh>
 <v t="peckj.20130130135455.1409"><vh>@@button pcs</vh></v>
 <v t="peckj.20130130122926.1372"><vh>@@button npcs</vh></v>
 <v t="peckj.20130130135455.1405"><vh>@@button locations</vh></v>
@@ -31,7 +27,7 @@
 <v t="peckj.20130130135455.1406"><vh>@@button events</vh></v>
 <v t="peckj.20130130135455.1408"><vh>@@button rules</vh></v>
 </v>
-<v t="peckj.20130201100641.14832" a="E"><vh>@button find</vh>
+<v t="peckj.20130201100641.14832"><vh>@button find</vh>
 <v t="peckj.20130201100641.14821"><vh>@rclick pcs</vh></v>
 <v t="peckj.20130201100641.14822"><vh>@rclick npcs</vh></v>
 <v t="peckj.20130201100641.14823"><vh>@rclick locations</vh></v>
@@ -70,11 +66,11 @@
 </v>
 </v>
 <v t="peckj.20130130133524.1373"><vh>Scripts</vh>
-<v t="peckj.20130130110049.5563" a="E"><vh>@common code</vh>
+<v t="peckj.20130130110049.5563"><vh>@common code</vh>
 <v t="peckj.20130430085426.12556"><vh>tags</vh></v>
 <v t="peckj.20130430085426.12557"><vh>dice</vh></v>
 <v t="peckj.20130430085426.12558"><vh>tables</vh></v>
-<v t="peckj.20130430085426.12559" a="E"><vh>templates</vh>
+<v t="peckj.20130430085426.12559"><vh>templates</vh>
 <v t="peckj.20130430085426.12561"><vh>string variable replacement</vh></v>
 <v t="peckj.20130430085426.12560"><vh>node to list</vh></v>
 <v t="peckj.20130430085426.12929"><vh>list to node</vh></v>
@@ -89,7 +85,7 @@
 <v t="peckj.20130130110049.5562"><vh>Jane Smith #npc</vh></v>
 </v>
 <v t="peckj.20130204145403.1454"><vh>Tables</vh>
-<v t="peckj.20130204145403.1455" a="E"><vh>@table Example Treasure Table</vh>
+<v t="peckj.20130204145403.1455"><vh>@table Example Treasure Table</vh>
 <v t="peckj.20130204145403.1456"><vh>1. 2d6 copper</vh></v>
 <v t="peckj.20130204145403.1457"><vh>2. 1 minor magic item</vh></v>
 <v t="peckj.20130204145403.1458"><vh>3. 1d4 gold</vh></v>
@@ -100,17 +96,17 @@
 </v>
 <v t="peckj.20130430085426.1693"><vh>Templates</vh>
 <v t="peckj.20130430085426.1692"><vh>Session Planning Template</vh>
-<v t="peckj.20130430085426.1694" a="E"><vh>@template &lt;$campaign&gt; Session #&lt;$num&gt; (&lt;$date&gt;)</vh>
+<v t="peckj.20130430085426.1694"><vh>@template &lt;$campaign&gt; Session #&lt;$num&gt; (&lt;$date&gt;)</vh>
 <v t="peckj.20130430085426.1704"><vh>@destination Sessions</vh></v>
 <v t="peckj.20130430085426.13024"><vh>@default &lt;$campaign&gt;</vh></v>
 <v t="peckj.20130430085426.1695"><vh>@item Who's Coming?</vh></v>
 <v t="peckj.20130430085426.1696"><vh>@item In-World Start Date?</vh></v>
 <v t="peckj.20130430085426.1697"><vh>@item Log</vh></v>
-<v t="peckj.20130430085426.1698" a="E"><vh>@item Threads</vh>
+<v t="peckj.20130430085426.1698"><vh>@item Threads</vh>
 <v t="peckj.20130430085426.1699"><vh>@item High Priority</vh></v>
 <v t="peckj.20130430085426.1700"><vh>@item Low Priority</vh></v>
 </v>
-<v t="peckj.20130430085426.1701" a="E"><vh>@item News</vh>
+<v t="peckj.20130430085426.1701"><vh>@item News</vh>
 <v t="peckj.20130430085426.1703"><vh>@item Out of Character</vh></v>
 <v t="peckj.20130430085426.1702"><vh>@item In Character</vh></v>
 </v>
@@ -212,8 +208,10 @@ exec(g.findTestScript(c,'@common code'))
 ## run with Ctrl+B
 
 ## your code here
-rpg_roll_dice("2d3-4+1d5-3")
-</t>
+#rpg_roll_dice("2d3-4+1d5-3")
+
+
+g.es(c.frame.nav.__dir__())</t>
 <t tx="peckj.20130130160613.1414">exec(g.findTestScript(c,'@common code'))
 rpg_roll_dice('2d3-4')
 # equivalent to 2dF: 1dF is 1d3-2.
@@ -300,7 +298,7 @@ rpg_copy_template(p)</t>
   '''
   tag = '#' + tag
   c.frame.log.selectTab('Nav')
-  nav = c.frame.log.widget
+  nav = c.frame.nav
   nav.ui.lineEdit.setText(tag)
   nav.returnPressed()
   c.executeMinibufferCommand('focus-to-nav')</t>
@@ -342,7 +340,7 @@ rpg_copy_template(p)</t>
   # imports
   import leo.core.leoGlobals as g
   if g.app.gui.guiName() == "qt":
-    from PyQt4 import QtCore, QtGui, uic
+    from PyQt5 import QtCore, QtGui, uic, QtWidgets
     Qt = QtCore.Qt
   
   varvals = {}
@@ -387,7 +385,7 @@ rpg_copy_template(p)</t>
     # prompt for values, except defaults
     for var in [v for v in vars if v not in varvals]:
       if Qt:
-        x0,ok = QtGui.QInputDialog.getText(None, 'Value for Template Variable' ,'%s value:' % var)
+        x0,ok = QtWidgets.QInputDialog.getText(None, 'Value for Template Variable' ,'%s value:' % var)
         if not ok:
           x0 = None
           return # cancel is a cancel for the whole lot
